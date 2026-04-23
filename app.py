@@ -9,13 +9,16 @@ from groq import Groq
 import sqlite3
 import datetime
 
-#from dotenv import load_dotenv
-#if os.path.exists('.env'):
-#    load_dotenv()
+from dotenv import load_dotenv
+if os.path.exists('.env'):
+    load_dotenv()
 
 # for AWS, do not run this because not using .env
 #os.environ["GROQ_API_KEY"] = ""
 #os.environ["GROQ_API_KEY"] = os.environ.get('GROQ_API_KEY')
+
+# This prevents the NoneType error by defaulting to "" if the key is missing
+os.environ["GROQ_API_KEY"] = os.environ.get('GROQ_API_KEY', "")
 
 client = Groq()
 
