@@ -75,6 +75,10 @@ def llama_result():
 def paynow():
     return(render_template("paynow.html"))
 
+@app.route("/agenticAI",methods=["GET","POST"])
+def agenticAI():
+    return(render_template("agenticAI.html"))
+
 @app.route("/userlog",methods=["GET","POST"])
 def userlog():
     conn = sqlite3.connect("user.db")
